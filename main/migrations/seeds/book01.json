@@ -1,0 +1,53 @@
+[
+    {
+        "model": "main.Book",
+        "pk": 1,
+        "fields": {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "summary": "The Great Gatsby is a 1925 novel written by American author F. Scott Fitzgerald that follows a cast of characters living in the fictional town of West Egg on prosperous Long Island in the summer of 1922. The story is about the arrival of a series of wealthy young people who find themselves living the high-class life of upper-class citizens in the country.",
+            "pages": 486,
+            "rating": "4.5",
+            "price": "24.99",
+            "isbn": "978-0553103540",
+            "publisher": "Scribner",
+            "pub_date": "1925-09-09",
+            "cover": "https://imgs.search.brave.com/28N4-f1Jv_l6S6IQPCi_HQaCaF-RZzFyo1ATA9YyO1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kMjho/Z3ByaThhbTJpZi5j/bG91ZGZyb250Lm5l/dC9ib29rX2ltYWdl/cy9vbml4L2N2cjk3/ODE0NzExNzM5MzYv/dGhlLWdyZWF0LWdh/dHNieS05NzgxNDcx/MTczOTM2X2hyLmpw/Zw",
+            "genre": "Fiction"
+        }
+    },
+    {
+        "model": "main.Book",
+        "pk": 2,
+        "fields": {
+            "title": "The Catcher in the Rye",
+            "author": "J.D. Salinger",
+            "summary": "The Catcher in the Rye is a 1951 novel by J. D. Salinger. A controversial novel originally published for adults, it has since become popular with adolescent readers for its themes of teenage angst and alienation. It has been translated into almost all of the world's major languages. Around 1 million copies are sold each year with total sales of more than 65 million books.",
+            "pages": 224,
+            "rating": "4.5",
+            "price": "24.99",
+            "isbn": "978-0553103540",
+            "publisher": "Scribner",
+            "pub_date": "1925-09-09",
+            "cover": "https://imgs.search.brave.com/28N4-f1Jv_l6S6IQPCi_HQaCaF-RZzFyo1ATA9YyO1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kMjho/Z3ByaThhbTJpZi5j/bG91ZGZyb250Lm5l/dC9ib29rX2ltYWdl/cy9vbml4L2N2cjk3/ODE0NzExNzM5MzYv/dGhlLWdyZWF0LWdh/dHNieS05NzgxNDcx/MTczOTM2X2hyLmpw/Zw",
+            "genre": "Fiction"
+        }
+    },
+    {
+        "model": "main.Book",
+        "pk": 3,
+        "fields": {
+            "title": "neuromancer",
+            "author": "William Gibson",
+            "summary": "Neuromancer is a 1984 novel by William Gibson. It is Gibson's second published novel and is regarded as one of the best novels ever written. The novel is set in a futuristic society where the brain is a construct and the body is an organic entity. The protagonist, a young",
+            "pages": 224,
+            "rating": "4.5",
+            "price": "24.99",
+            "isbn": "978-0553103540",
+            "publisher": "Scribner",
+            "pub_date": "1925-09-09",
+            "cover": "https://imgs.search.brave.com/28N4-f1Jv_l6S6IQPCi_HQaCaF-RZzFyo1ATA9YyO1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kMjho/Z3ByaThhbTJpZi5j/bG91ZGZyb250Lm5l/dC9ib29rX2ltYWdl/cy9vbml4L2N2cjk3/ODE0NzExNzM5MzYv/dGhlLWdyZWF0LWdh/dHNieS05NzgxNDcx/MTczOTM2X2hyLmpw/Zw",
+            "genre": "Fiction"
+        }
+    }
+]
