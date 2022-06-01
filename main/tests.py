@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from main.models import Book, OrderItem, Order
+from inventory.models import Book
 
 class BookTestCase(TestCase):
     def setUp(self):
@@ -46,16 +46,4 @@ class BookTestCase(TestCase):
 
     def test_book_genre(self):
         self.assertEqual(self.book.genre, "Test Genre")
-
-
-class OrderTestCase(TestCase):
-    def setUp(self):
-        self.order = Order.objects.create(user=User.objects.create(username="Test User", email="Test Email", password="Test Password"), items=OrderItem.objects.create(book=Book.objects.create(title="Test Book", author="Test Author", summary="Test Summary", pages=1, rating=0.0, price=1.0, isbn="123456789", publisher="Test Publisher", pub_date="2017-01-01", cover="Test Cover", genre="Test Genre"), quantity=1))
-
-    def test_order_user(self):
-        self.assertEqual(self.order.user.username, "Test User")
-
-    def test_order_items(self):
-        self.assertEqual(self.order.items.book.title, "Test Book")
-
 

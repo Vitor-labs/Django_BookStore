@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Book(models.Model):
     id = models.AutoField(primary_key=True)
@@ -19,21 +17,3 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class OrderItem(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-
-    def __str__(self):
-        return self.book.title
-
-
-class Order(models.Model):
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    items = models.ManyToManyField(OrderItem)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.user.username

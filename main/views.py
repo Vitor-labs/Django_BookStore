@@ -2,8 +2,8 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 
-from main.serializer import UserSerializer, GroupSerializer, BookSerializer, OrderItemSerializer, OrderSerializer
-from main.models import Book, OrderItem, Order
+from inventory.serializer import UserSerializer, GroupSerializer, BookSerializer
+from inventory.models import Book
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -70,21 +70,3 @@ class BookViewSet(viewsets.ModelViewSet):
         book = Book.objects.get(id=kwargs['pk'])
         book.delete()
         return Response(status=204)
-
-
-class OrderItemViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows order items to be viewed or edited.
-    """
-    queryset = OrderItem.objects.all()
-    serializer_class = OrderItemSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class OrderViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows orders to be viewed or edited.
-    """
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    permission_classes = [permissions.IsAuthenticated]
