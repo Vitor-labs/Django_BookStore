@@ -21,9 +21,14 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from inventory import views
 
 router = routers.DefaultRouter()
+# Books [inventory app] routes - Not Tested
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'books', views.BookViewSet)
+# Client, Cart, Payment [store app] routes - Not Tested
+router.register(r'clients', views.ClientViewSet)
+router.register(r'carts', views.CartViewSet)
+router.register(r'payments', views.PaymentViewSet)
 
 
 # Wire up our API using automatic URL routing.
