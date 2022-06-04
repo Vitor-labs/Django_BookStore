@@ -1,6 +1,6 @@
 [
     {
-        "model": "main.Book",
+        "model": "inventory.Book",
         "pk": 1,
         "fields": {
             "title": "The Great Gatsby",
@@ -17,7 +17,7 @@
         }
     },
     {
-        "model": "main.Book",
+        "model": "inventory.Book",
         "pk": 2,
         "fields": {
             "title": "The Catcher in the Rye",
@@ -34,7 +34,7 @@
         }
     },
     {
-        "model": "main.Book",
+        "model": "inventory.Book",
         "pk": 3,
         "fields": {
             "title": "neuromancer",
