@@ -18,17 +18,19 @@ from django.urls import include, path
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from inventory import views
+from inventory import views as inventory_views
+from store import views as store_views
 
 router = routers.DefaultRouter()
 # Books [inventory app] routes - Not Tested
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'books', views.BookViewSet)
+router.register(r'users', inventory_views.UserViewSet)
+router.register(r'groups', inventory_views.GroupViewSet)
+router.register(r'books', inventory_views.BookViewSet)
+
 # Client, Cart, Payment [store app] routes - Not Tested
-router.register(r'clients', views.ClientViewSet)
-router.register(r'carts', views.CartViewSet)
-router.register(r'payments', views.PaymentViewSet)
+router.register(r'clients', store_views.ClientViewSet)
+router.register(r'carts', store_views.CartViewSet)
+router.register(r'payments', store_views.PaymentViewSet)
 
 
 # Wire up our API using automatic URL routing.
