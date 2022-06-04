@@ -31,9 +31,10 @@ class BookTestCase(TestCase):
         self.assertTrue(len(books) > 0)
 
     def test_book_update(self):
-        self.book.title = fake.name()
+        title = fake.name()
+        self.book.title = title
         self.book.save()
-        self.assertEqual(self.book.title, self.book.__str__())
+        self.assertEqual(title, self.book.__str__())
 
     def test_book_delete(self):
         self.book.delete()
