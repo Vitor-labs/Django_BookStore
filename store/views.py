@@ -1,11 +1,9 @@
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 
-
 # Create your views here.
 from store.models import Cart, Client, Payment
 from store.serializer import CartSerializer, ClientSerializer, PaymentSerializer
-
 
 class CartViewSet(viewsets.ModelViewSet):
     """
@@ -110,10 +108,14 @@ class PaymentViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def list(self, request, *args, **kwargs):
-        queryset = Payment.objects.all()
+        start, end = request.GET.get('start'), request.GET.get('end')
+        queryset = Payment.objects.filter(
+            date__gte=start, date__lte=end)
+        
         serializer = PaymentSerializer(queryset, many=True)
-        return Response(serializer.data)
 
+        return Response(serializer.data)
+        
     def retrive(self, request, *args, **kwargs):
         queryset = Payment.objects.get(id=kwargs['pk'])
         serializer = PaymentSerializer(queryset)

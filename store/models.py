@@ -42,13 +42,6 @@ class Client(models.Model):
     zip_code = models.CharField(max_length=255, blank=True, null=True)
     country = models.CharField(max_length=255, blank=True, null=True)
 
-    credit_card_number = models.CharField(
-        max_length=255, blank=True, null=True)
-    credit_card_expiration_date = models.CharField(
-        max_length=255, blank=True, null=True)
-    credit_card_cvv = models.CharField(
-        max_length=255, blank=True, null=True)
-
     class Meta:
         db_table = 'Client'
 
@@ -60,8 +53,9 @@ class Payment(models.Model):
     payment_id = models.AutoField(primary_key=True)
     date_added = models.DateField(auto_now_add=True)
     payment_method = models.CharField(
-        max_length=255, blank=True, null=True)
-
+        max_length=255, 
+        blank=True, 
+        null=True)
     client = models.ForeignKey(
         'store.Client',
         on_delete=models.CASCADE,
@@ -74,6 +68,7 @@ class Payment(models.Model):
         max_digits=6,
         decimal_places=2,
     )
+    stripe_token = models.CharField(max_length=100)
 
     class Meta:
         db_table = 'Payment'
