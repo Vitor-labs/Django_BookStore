@@ -12,7 +12,7 @@ class Book(models.Model):
     isbn = models.CharField(max_length=13)
     publisher = models.CharField(max_length=200)
     pub_date = models.DateField()
-    cover = models.ImageField(upload_to='covers/')
+    cover = models.ImageField(upload_to='covers/', blank=True, null=True)
     genre = models.CharField(max_length=200, default="")
 
     def __str__(self):

@@ -5,7 +5,6 @@ from inventory.models import Book
 
 fake = Faker()
 
-
 class BookTestCase(TestCase):
     def setUp(self):
         self.book = Book.objects.create(

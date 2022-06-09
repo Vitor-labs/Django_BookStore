@@ -1,0 +1,47 @@
+[
+    {
+        "model": "store.Client",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "first_name": "Иван",
+            "last_name": "Иванов",
+            "phone_number": "+79261234567",
+            "address": "г. Москва, ул. Пушкина, д. 1",
+            "city": "Москва",
+            "state": "Москва",
+            "zip_code": "1234",
+            "country": "Россия"
+        }
+    },
+    {
+        "model": "store.Client",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "first_name": "victor",
+            "last_name": "khan",
+            "phone_number": "+33 98321200",
+            "address": "г. Jucelino Cardoso, 171",
+            "city": "São Paulo",
+            "state": "São Paulo",
+            "zip_code": "01234567",
+            "country": "Brazil"
+        }
+    },
+    {
+        "model": "store.Client",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "first_name": "han",
+            "last_name": "solo",
+            "phone_number": "+66 978653421",
+            "address": "Zona 1, Calle 1",
+            "city": "Ciudad de México",
+            "state": "Ciudad de México",
+            "zip_code": "01234567",
+            "country": "Mexico"
+        }
+    }
+]

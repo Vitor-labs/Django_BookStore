@@ -1,0 +1,30 @@
+[
+    {
+        "model": "store.CartItem",
+        "fields": {
+            "book": 1,
+            "cart": 1,
+            "product": 1,
+            "quantity": 2,
+            "active": true
+        }
+    },
+    {
+        "model": "store.CartItem",
+        "fields": {
+            "book": 2,
+            "cart": 2,
+            "quantity": 2,
+            "active": true
+        }
+    },
+    {
+        "model": "store.CartItem",
+        "fields": {
+            "book": 3,
+            "cart": 2,
+            "quantity": 1,
+            "active": true
+        }
+    }
+]

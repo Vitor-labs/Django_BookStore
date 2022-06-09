@@ -1,0 +1,16 @@
+[
+    {
+        "model": "store.Cart",
+        "fields": {
+            "date_added": "2019-01-01",
+            "client": 1
+        }
+    },
+    {
+        "model": "store.Cart",
+        "fields": {
+            "date_added": "2019-01-01",
+            "client": 2
+        }
+    }
+]

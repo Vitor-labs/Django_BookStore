@@ -4,16 +4,12 @@ from django.db import models
 
 
 class Cart(models.Model):
+    cart_id = models.CharField(primary_key=True, max_length=50)
     date_added = models.DateField(auto_now_add=True)
 
     client = models.OneToOneField(
         'store.Client',
         on_delete=models.CASCADE,
-        primary_key=True,
-    )
-    items = models.ManyToManyField(
-        'inventory.Book',
-        related_name='carts',
     )
 
     class Meta:
@@ -24,11 +20,33 @@ class Cart(models.Model):
         return self.cart_id
 
 
+class CartItem(models.Model):
+        book = models.ForeignKey(
+            'inventory.Book',
+            on_delete=models.CASCADE,
+        )
+        cart = models.ForeignKey(
+            'store.Cart',
+            on_delete=models.CASCADE,
+        )
+        quantity = models.IntegerField()
+        active = models.BooleanField(default=True)
+    
+        class Meta:
+            db_table = 'CartItem'
+            ordering = ['cart', 'book']
+    
+        def sub_total(self):
+            return self.product.price * self.quantity
+    
+        def __str__(self):
+            return self.book
+
 class Client(models.Model):
     client_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(
         'auth.User',
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         blank=True,
         null=True,
     )
@@ -68,11 +86,10 @@ class Payment(models.Model):
         max_digits=6,
         decimal_places=2,
     )
-    stripe_token = models.CharField(max_length=100)
 
     class Meta:
         db_table = 'Payment'
         ordering = ['date_added']
 
     def __str__(self):
-        return self.payment_id
+        return str(self.payment_id, self.date_added)
