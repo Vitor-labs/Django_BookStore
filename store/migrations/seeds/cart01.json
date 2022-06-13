@@ -1,16 +1,18 @@
 [
     {
         "model": "store.Cart",
+        "pk": 1,
         "fields": {
-            "date_added": "2019-01-01",
+            "date_added": "2021-12-09",
             "client": 1
         }
     },
     {
         "model": "store.Cart",
+        "pk": 3,
         "fields": {
-            "date_added": "2019-01-01",
-            "client": 2
+            "date_added": "2022-04-15",
+            "client": 3
         }
     }
 ]
