@@ -3,17 +3,10 @@ from rest_framework import serializers
 from store.models import Cart, Client, Payment
 
 class CartSerializer(serializers.HyperlinkedModelSerializer):
-    def create(self, validated_data):
-        return Cart.objects.create(**validated_data)
-    
-    def update(self, instance, validated_data):
-        instance.client = validated_data.get('client', instance.client)
-        instance.save()
-        return instance
-
     class Meta:
         model = Cart
-        fields = ['cart_id', 'client', 'date_added']
+        fields = ['cart_id', 'date_added', 'client']
+
 
 class ClientSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

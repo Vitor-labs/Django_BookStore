@@ -1,6 +1,4 @@
 from rest_framework import viewsets, permissions
-from rest_framework.response import Response
-from rest_framework.request import Request
 
 # Create your views here.
 from store.models import Cart, Client, Payment
