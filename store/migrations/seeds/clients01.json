@@ -3,7 +3,7 @@
         "model": "store.Client",
         "pk": 1,
         "fields": {
-            "user": 1,
+            "user": 2,
             "first_name": "Иван",
             "last_name": "Иванов",
             "phone_number": "+79261234567",
@@ -18,7 +18,7 @@
         "model": "store.Client",
         "pk": 2,
         "fields": {
-            "user": 2,
+            "user": 3,
             "first_name": "victor",
             "last_name": "khan",
             "phone_number": "+33 98321200",
@@ -33,7 +33,7 @@
         "model": "store.Client",
         "pk": 3,
         "fields": {
-            "user": 3,
+            "user": 4,
             "first_name": "han",
             "last_name": "solo",
             "phone_number": "+66 978653421",

@@ -16,13 +16,6 @@ class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
-    def get(self, request, format=None):
-        content = {
-            'user': str(request.user),  # `django.contrib.auth.User` instance.
-            'auth': str(request.auth),  # None
-        }
-        return Response(content)
-
 
 class GroupViewSet(viewsets.ModelViewSet):
     """
@@ -41,41 +34,3 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-    def list(self, request, *args, **kwargs):
-        queryset = Book.objects.all()
-        serializer = BookSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-    def retrive(self, request, *args, **kwargs):
-        queryset = Book.objects.get(id=kwargs['pk'])
-        serializer = BookSerializer(queryset)
-        return Response(serializer.data)
-
-    def create(self, request, *args, **kwargs):
-        serializer = BookSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
-
-    def update(self, request, *args, **kwargs):
-        book = Book.objects.get(id=kwargs['pk'])
-        serializer = BookSerializer(book, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
-
-    def partial_update(self, request, *args, **kwargs):
-        book = Book.objects.get(id=kwargs['pk'])
-        serializer = BookSerializer(book, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
-
-    def destroy(self, request, *args, **kwargs):
-        book = Book.objects.get(id=kwargs['pk'])
-        book.delete()
-        return Response(status=204)

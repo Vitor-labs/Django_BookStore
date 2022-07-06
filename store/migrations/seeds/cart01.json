@@ -9,9 +9,17 @@
     },
     {
         "model": "store.Cart",
+        "pk": 2,
+        "fields": {
+            "date_added": "2021-12-09",
+            "client": 2
+        }
+    },
+    {
+        "model": "store.Cart",
         "pk": 3,
         "fields": {
-            "date_added": "2022-04-15",
+            "date_added": "2021-12-09",
             "client": 3
         }
     }
