@@ -6,10 +6,12 @@ from django.db import models
 
 class Client(models.Model):
     id = models.AutoField(primary_key=True, default=1)
+    
     user = models.OneToOneField(
         'auth.User',
-        on_delete=models.PROTECT,
+        on_delete=models.PROTECT,   
     )
+
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
     phone_number = models.CharField(max_length=255, blank=True, null=True)
@@ -32,7 +34,7 @@ class Cart(models.Model):
 
     client = models.ForeignKey(
         Client,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
     )
 
     class Meta:
