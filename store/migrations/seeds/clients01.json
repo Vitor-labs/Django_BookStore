@@ -3,7 +3,6 @@
         "model": "store.Client",
         "pk": 1,
         "fields": {
-            "user": 2,
             "first_name": "Иван",
             "last_name": "Иванов",
             "phone_number": "+79261234567",
@@ -18,7 +17,6 @@
         "model": "store.Client",
         "pk": 2,
         "fields": {
-            "user": 3,
             "first_name": "victor",
             "last_name": "khan",
             "phone_number": "+33 98321200",
@@ -33,7 +31,6 @@
         "model": "store.Client",
         "pk": 3,
         "fields": {
-            "user": 4,
             "first_name": "han",
             "last_name": "solo",
             "phone_number": "+66 978653421",
@@ -42,6 +39,34 @@
             "state": "Ciudad de México",
             "zip_code": "01234567",
             "country": "Mexico"
+        }
+    },
+    {
+        "model": "store.Client",
+        "pk": 4,
+        "fields": {
+            "first_name": "lee",
+            "last_name": "kim",
+            "phone_number": "+82 10-1234-5678",
+            "address": "Zona 1, Calle 1",
+            "city": "Seoul",
+            "state": "Seoul",
+            "zip_code": "01234567",
+            "country": "South Korea"
+        }
+    },
+    {
+        "model": "store.Client",
+        "pk": 5,
+        "fields": {
+            "first_name": "james",
+            "last_name": "bond",
+            "phone_number": "+44 20-1234-5678",
+            "address": "Zona 1, Calle 1",
+            "city": "London",
+            "state": "London",
+            "zip_code": "01234567",
+            "country": "United Kingdom"
         }
     }
 ]

@@ -22,9 +22,7 @@ from inventory import views as inventory_views
 from store import views as store_views
 
 router = routers.DefaultRouter()
-# Books [inventory app] routes - Not Tested
-router.register(r'users', inventory_views.UserViewSet)
-router.register(r'groups', inventory_views.GroupViewSet)
+# Books [inventory app] routes - Tested OK
 router.register(r'books', inventory_views.BookViewSet)
 
 # Client, Cart, Payment [store app] routes - Not Tested

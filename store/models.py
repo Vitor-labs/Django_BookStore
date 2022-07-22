@@ -1,16 +1,10 @@
 import datetime
 from django.db import models
 
+
 # Create your models here.
-
-
 class Client(models.Model):
     id = models.AutoField(primary_key=True, default=1)
-    
-    user = models.OneToOneField(
-        'auth.User',
-        on_delete=models.PROTECT,   
-    )
 
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
@@ -24,6 +18,7 @@ class Client(models.Model):
 
     class Meta:
         db_table = 'Client'
+        ordering = ['id']
 
     def __str__(self):
         return self.client_id
@@ -39,13 +34,13 @@ class Cart(models.Model):
 
     class Meta:
         db_table = 'Cart'
+        ordering = ['id']
 
     def __str__(self):
         return str(self.cart_id)
 
 
 class CartItem(models.Model):
-    id = models.AutoField(primary_key=True, default=0)
     cart = models.ForeignKey(
         'store.Cart',
         on_delete=models.CASCADE,
@@ -55,7 +50,7 @@ class CartItem(models.Model):
         on_delete=models.CASCADE,
     )
     quantity = models.IntegerField()
-    
+
     date_added = models.DateField(default=datetime.date.today)
     active = models.BooleanField(default=True)
 
@@ -75,7 +70,7 @@ class Payment(models.Model):
     date_added = models.DateField(auto_now_add=True)
     payment_method = models.CharField(
         max_length=255,
-        )
+    )
     client = models.ForeignKey(
         'store.Client',
         on_delete=models.CASCADE,

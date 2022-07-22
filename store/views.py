@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
 
 # Create your views here.
-from store.models import Cart, Client, Payment
+from store.models import Cart, CartItem, Client, Payment
 from store.serializer import CartSerializer, ClientSerializer, PaymentSerializer
 
 
@@ -12,6 +12,8 @@ class CartViewSet(viewsets.ModelViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    carts_with_items = {}
 
 
 class ClientViewSet(viewsets.ModelViewSet):

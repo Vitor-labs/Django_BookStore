@@ -2,20 +2,21 @@
     {
         "model": "store.CartItem",
         "fields": {
-            "book": 1,
             "cart": 1,
-            "product": 1,
+            "book": 1,
             "quantity": 2,
+            "date_added": "2013-12-30",
             "active": true
         }
     },
     {
         "model": "store.CartItem",
         "fields": {
-            "book": 2,
             "cart": 2,
+            "book": 2,
             "quantity": 2,
-            "active": true
+            "active": true,
+            "date_added": "2019-02-10"
         }
     },
     {
@@ -24,7 +25,8 @@
             "book": 3,
             "cart": 2,
             "quantity": 1,
-            "active": true
+            "active": true,
+            "date_added": "2013-12-30"
         }
     }
 ]
