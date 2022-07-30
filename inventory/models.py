@@ -17,7 +17,6 @@ class Book(models.Model):
 
     class Meta:
         db_table = 'Book'
-        ordering = ['date_added']
 
     def __str__(self):
         return self.title

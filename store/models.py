@@ -1,4 +1,3 @@
-import datetime
 from django.db import models
 
 
@@ -18,7 +17,6 @@ class Client(models.Model):
 
     class Meta:
         db_table = 'Client'
-        ordering = ['id']
 
     def __str__(self):
         return self.client_id
@@ -34,7 +32,6 @@ class Cart(models.Model):
 
     class Meta:
         db_table = 'Cart'
-        ordering = ['id']
 
     def __str__(self):
         return str(self.cart_id)
@@ -51,7 +48,7 @@ class CartItem(models.Model):
     )
     quantity = models.IntegerField()
 
-    date_added = models.DateField(default=datetime.date.today)
+    date_added = models.DateField(auto_now_add=True)
     active = models.BooleanField(default=True)
 
     class Meta:
@@ -66,11 +63,8 @@ class CartItem(models.Model):
 
 
 class Payment(models.Model):
-    payment_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     date_added = models.DateField(auto_now_add=True)
-    payment_method = models.CharField(
-        max_length=255,
-    )
     client = models.ForeignKey(
         'store.Client',
         on_delete=models.CASCADE,
@@ -93,7 +87,6 @@ class Payment(models.Model):
 
     class Meta:
         db_table = 'Payment'
-        ordering = ['date_added']
 
     def __str__(self):
         return str(self.payment_id, self.date_added)
