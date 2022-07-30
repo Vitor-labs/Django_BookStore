@@ -1,5 +1,4 @@
 import datetime
-from random import choices
 from django.db import models
 
 
@@ -86,7 +85,7 @@ class Payment(models.Model):
         ('De', 'Debit Card'),
         ('Pp', 'Paypal'),
     )
-    status = models.CharField(
+    method = models.CharField(
         max_length=2,
         choices=choices,
         default='Ca',
