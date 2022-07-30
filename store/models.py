@@ -1,10 +1,11 @@
 import datetime
+from random import choices
 from django.db import models
 
 
 # Create your models here.
 class Client(models.Model):
-    id = models.AutoField(primary_key=True, default=1)
+    id = models.AutoField(primary_key=True)
 
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -79,9 +80,16 @@ class Payment(models.Model):
         max_digits=6,
         decimal_places=2,
     )
+    choices = (
+        ('Ca', 'Cash'),
+        ('Cr', 'Credit Card'),
+        ('De', 'Debit Card'),
+        ('Pp', 'Paypal'),
+    )
     status = models.CharField(
-        max_length=255,
-        default='Pending',
+        max_length=2,
+        choices=choices,
+        default='Ca',
     )
 
     class Meta:

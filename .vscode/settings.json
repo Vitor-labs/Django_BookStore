@@ -1,5 +1,5 @@
 [
     {
-        "python.pythonPath": "${workspaceRoot}/env/Scripts/python.exe",
+        "python.defaultInterpreterPath ": "${workspaceRoot}/env/Scripts/python.exe",
     }
 ]
