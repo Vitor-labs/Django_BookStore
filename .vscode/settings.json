@@ -1,0 +1,5 @@
+[
+    {
+        "python.pythonPath": "${workspaceRoot}/env/Scripts/python.exe",
+    }
+]

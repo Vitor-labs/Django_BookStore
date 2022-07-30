@@ -4,13 +4,13 @@ from inventory.models import Book
 from store.models import Cart, CartItem, Client, Payment
 
 
-class CartSerializer(serializers.HyperlinkedModelSerializer):
+class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
         fields = ['id', 'client']
 
 
-class CartItemSerializer(serializers.HyperlinkedModelSerializer):
+class CartItemSerializer(serializers.ModelSerializer):
     def add_to_cart(self, book_id):
         try:
             book = Book.objects.get(id=book_id)
@@ -69,14 +69,14 @@ class CartItemSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['__all__']
 
 
-class ClientSerializer(serializers.HyperlinkedModelSerializer):
+class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
         fields = ['id', 'first_name', 'last_name', 'phone_number',
                   'address', 'city', 'state', 'zip_code', 'country']
 
 
-class PaymentSerializer(serializers.HyperlinkedModelSerializer):
+class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
         fields = ['id', 'date_added',

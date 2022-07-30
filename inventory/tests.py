@@ -5,6 +5,7 @@ from inventory.models import Book
 
 fake = Faker()
 
+
 class BookTestCase(TestCase):
     def setUp(self):
         self.book = Book.objects.create(
@@ -24,7 +25,7 @@ class BookTestCase(TestCase):
     def test_book_creation(self):
         self.assertTrue(isinstance(self.book, Book))
         self.assertEqual(self.book.__str__(), self.book.title)
-    
+
     def test_book_list(self):
         books = Book.objects.all()
         self.assertTrue(len(books) > 0)
@@ -38,4 +39,3 @@ class BookTestCase(TestCase):
     def test_book_delete(self):
         self.book.delete()
         self.assertFalse(Book.objects.filter(id=self.book.id).exists())
-
