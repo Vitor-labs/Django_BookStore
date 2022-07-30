@@ -28,7 +28,6 @@ router.register(r'books', inventory_views.BookViewSet)
 # Client, Cart, Payment [store app] routes - Not Tested
 router.register(r'clients', store_views.ClientViewSet)
 router.register(r'carts', store_views.CartViewSet)
-router.register(r'cart/{pk}/get_items', store_views.CartItemViewSet)
 router.register(r'payments', store_views.PaymentViewSet)
 
 
