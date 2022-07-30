@@ -6,15 +6,15 @@ from django.db import models
 class Client(models.Model):
     id = models.AutoField(primary_key=True, default=1)
 
-    first_name = models.CharField(max_length=255, blank=True, null=True)
-    last_name = models.CharField(max_length=255, blank=True, null=True)
-    phone_number = models.CharField(max_length=255, blank=True, null=True)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=255)
 
-    address = models.CharField(max_length=255, blank=True, null=True)
-    city = models.CharField(max_length=255, blank=True, null=True)
-    state = models.CharField(max_length=255, blank=True, null=True)
-    zip_code = models.CharField(max_length=255, blank=True, null=True)
-    country = models.CharField(max_length=255, blank=True, null=True)
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=255, blank=True)
+    state = models.CharField(max_length=255, blank=True)
+    zip_code = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
 
     class Meta:
         db_table = 'Client'
@@ -25,7 +25,7 @@ class Client(models.Model):
 
 
 class Cart(models.Model):
-    id = models.AutoField(primary_key=True, default=0)
+    id = models.AutoField(primary_key=True)
 
     client = models.ForeignKey(
         Client,

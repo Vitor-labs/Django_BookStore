@@ -49,5 +49,22 @@
             "cover": "https://imgs.search.brave.com/28N4-f1Jv_l6S6IQPCi_HQaCaF-RZzFyo1ATA9YyO1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kMjho/Z3ByaThhbTJpZi5j/bG91ZGZyb250Lm5l/dC9ib29rX2ltYWdl/cy9vbml4L2N2cjk3/ODE0NzExNzM5MzYv/dGhlLWdyZWF0LWdh/dHNieS05NzgxNDcx/MTczOTM2X2hyLmpw/Zw",
             "genre": "Fiction"
         }
+    },
+    {
+        "model": "inventory.Book",
+        "pk": 4,
+        "fields": {
+            "title": "The Lord of the Rings",
+            "author": "J.R.R. Tolkien",
+            "summary": "The Lord of the Rings is a 1954 novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. It is one of the best-selling novels of the twentieth century. The novel's main character, a young Hobbit named Frodo Baggins",
+            "pages": 434,
+            "rating": "4.8",
+            "price": "51.90",
+            "isbn": "978-0553103540",
+            "publisher": "Scribner",
+            "pub_date": "1937-12-09",
+            "cover": "https://imgs.search.brave.com/28N4-f1Jv_l6S6IQPCi_HQaCaF-RZzFyo1ATA9YyO1E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9kMjho/Z3ByaThhbTJpZi5j/bG91ZGZyb250Lm5l/dC9ib29rX2ltYWdl/cy9vbml4L2N2cjk3/ODE0NzExNzM5MzYv/dGhlLWdyZWF0LWdh/dHNieS05NzgxNDcx/MTczOTM2X2hyLmpw/Zw",
+            "genre": "Fantasy"
+        }
     }
 ]
