@@ -72,12 +72,10 @@ class CartItemSerializer(serializers.ModelSerializer):
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
-        fields = ['id', 'first_name', 'last_name', 'phone_number',
-                  'address', 'city', 'state', 'zip_code', 'country']
+        fields = ['__all__']
 
 
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
-        fields = ['id', 'date_added',
-                  'payment_method', 'client', 'cart', 'amount']
+        fields = ['__all__']
