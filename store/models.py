@@ -19,7 +19,7 @@ class Client(models.Model):
         db_table = 'Client'
 
     def __str__(self):
-        return self.client_id
+        return str(self.id)
 
 
 class Cart(models.Model):
@@ -34,7 +34,7 @@ class Cart(models.Model):
         db_table = 'Cart'
 
     def __str__(self):
-        return str(self.cart_id)
+        return str(self.id)
 
 
 class CartItem(models.Model):
