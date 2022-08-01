@@ -15,16 +15,12 @@ class CartViewSet(viewsets.ModelViewSet):
     serializer_class = CartSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    @action(detail=True, methods=['get'], url_path='items', url_name='items')
-    def retrive(self, pk=None):
-        if pk is not None:
-            cart = Cart.objects.get(pk=pk)
-            cart_items = CartItem.objects.filter(cart=cart)
-            serializer = CartItemSerializer(cart_items, many=True)
-
-            return Response(serializer.data)
-
-        return Response(status=400)
+    @action(detail=True, methods=['get'])
+    def items(self, request, pk=None):
+        cart = self.get_object()
+        items = CartItem.objects.filter(cart=cart)
+        serializer = CartItemSerializer(items, many=True)
+        return Response(serializer.data)
 
 
 class CartItemViewSet(viewsets.ModelViewSet):
