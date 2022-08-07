@@ -22,6 +22,31 @@ class CartViewSet(viewsets.ModelViewSet):
         serializer = CartItemSerializer(items, many=True)
         return Response(serializer.data)
 
+    @action(detail=True, methods=['get'])
+    def client(self, request, pk=None):
+        cart = self.get_object()
+        client = Client.objects.get(cart=cart)
+        serializer = ClientSerializer(client)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['get'])
+    def pay(self, request, pk=None):
+        cart = self.get_object()
+        items = CartItem.objects.filter(cart=cart)
+        total = 0
+        for item in items:
+            total += item.book.price * item.quantity
+
+        client = Client.objects.get(cart=cart)
+        serializer = PaymentSerializer(
+            data={'client': client.id, 'amount': total, 'method': 'Cr'})
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors)
+        
 
 class CartItemViewSet(viewsets.ModelViewSet):
     """
