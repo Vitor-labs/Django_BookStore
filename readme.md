@@ -26,9 +26,9 @@ Descrição: Listagem de um único livro.
 
 Descrição: Deve ser possível remover um livro.
 
-##### RF04 - Filtrar livros pelo status
+##### RF04 - Filtrar livros 
 
-Descrição: você pode filtrar livros vendidos ou disponíveis
+Descrição: você pode filtrar livros por status.
 
 ##### RF05 - Vender livro
 
