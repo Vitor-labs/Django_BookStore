@@ -22,21 +22,21 @@ from inventory import views as inventory_views
 from store import views as store_views
 
 router = routers.DefaultRouter()
-# Books [inventory app] routes - Tested OK
-router.register(r'books', inventory_views.BookViewSet)
 
-# Client, Cart, Payment [store app] routes - Not Tested
+# Books, Users [inventory app] routes - Tested OK
+router.register(r'books', inventory_views.BookViewSet)
+router.register(r'users', inventory_views.UserViewSet)
+
+# Client, Cart, Payment [store app] routes - Tested OK
 router.register(r'clients', store_views.ClientViewSet)
 router.register(r'carts', store_views.CartViewSet)
 router.register(r'items', store_views.CartItemViewSet)
 router.register(r'payments', store_views.PaymentViewSet)
 
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('auth/', include('inventory.urls'), name='auth'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('token/', TokenObtainPairView.as_view()),
     path('token/refresh/', TokenRefreshView.as_view()),

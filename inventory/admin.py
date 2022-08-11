@@ -1,7 +1,7 @@
 # Django Libs:
 from django.contrib import admin
 # Local Libs:
-from .models import Book
+from inventory.models import Book, User
 
 
 class CustomBook(admin.ModelAdmin):
@@ -23,3 +23,4 @@ class CustomBook(admin.ModelAdmin):
 
 
 admin.site.register(Book, CustomBook)
+admin.site.register(User)
