@@ -3,29 +3,26 @@ from django.urls import reverse
 from faker import Faker
 
 
-fake = Faker()
-
 class TestSetUp(APITestCase):
     def setUp(self):
-        self.book : dict = {
-            'title': fake.name(),
-            'author': fake.name(),
-            'summary': fake.text(),
-            'pages': fake.random_int(min=1, max=1500),
-            'rating': fake.random_int(min=1, max=5),
-            'price': fake.random_number(digits=4),
-            'isbn': fake.isbn10(),
-            'publisher': fake.company(),
-            'pub_date': fake.date_between(start_date="-10y", end_date="today"),
-            'cover': fake.image_url(width=None, height=None),
-            'genre': fake.name()
-        }
-
         self.books_url : str = reverse('books')
+        self.fake = Faker()
 
+        self.book : dict = {
+            'title': self.fake.name(),
+            'author': self.fake.name(),
+            'summary': self.fake.text(),
+            'pages': self.fake.random_int(min=1, max=1500),
+            'rating': self.fake.random_int(min=1, max=5),
+            'price': self.fake.random_number(digits=4),
+            'isbn': self.fake.isbn10(),
+            'publisher': self.fake.company(),
+            'pub_date': self.fake.date_between(start_date="-10y", end_date="today"),
+            'cover': self.fake.image_url(width=None, height=None),
+            'genre': self.fake.name()
+        }
         return super().setUp()
 
     def tearDown(self):
-        self.book.delete()
-        self.book = None
-        self.assertEqual(self.book, None)
+        return super().tearDown()
+        
