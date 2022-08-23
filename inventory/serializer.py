@@ -1,4 +1,10 @@
 from rest_framework import serializers
+from rest_framework.exceptions import AuthenticationFailed
+
+from django.contrib import auth
+from django.utils.http import urlsafe_base64_decode
+from django.utils.encoding import force_str
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
 from inventory.models import Book, User
 
@@ -96,3 +102,37 @@ class LoginSerializer(serializers.ModelSerializer):
             'password': password,
             'token': user.tokens
         }
+
+class RequestPasswordResetSerializer(serializers.Serializer):
+    email= serializers.EmailField(min_length=10)
+
+    class Meta:
+        fields = ['email',]
+
+class SetNewPasswordSerializer(serializers.Serializer):
+    password = serializers.PasswordField(min_length=8, max_length=20, write_only=True)
+    token = serializers.CharField(write_only=True)
+    uidb64 = serializers.CharField(write_only=True)
+
+    class Meta:
+        fields=['password', 'token', 'uidb64']
+
+    def validate(self, data):
+        try:
+            password = data.get('password')
+            token = data.get('token')
+            uidb64 = data.get('uidb64')
+
+            user_id = force_str(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(id=user_id)
+
+            if not PasswordResetTokenGenerator().check_token(user, token):
+                raise AuthenticationFailed('Invalid Link', 401)
+
+            user.set_password(password)
+            user.save()
+            
+            return user
+        except Exception as exc:
+            message= {'Invalid Link': str(exc)}
+            raise AuthenticationFailed(message, 401)
