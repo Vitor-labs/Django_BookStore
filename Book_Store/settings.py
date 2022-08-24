@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'inventory.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 # Application definition
 REST_FRAMEWORK = {
