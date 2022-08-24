@@ -35,7 +35,7 @@ router.register(r'payments', store_views.PaymentViewSet, basename='payments')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls), name='shopping'),
-    path('auth/', include('auth.urls'), name='authentication'),
+    path('auth/', include('authentication.urls'), name='authentication'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('token/', TokenObtainPairView.as_view()),
     path('token/refresh/', TokenRefreshView.as_view()),

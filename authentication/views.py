@@ -12,15 +12,15 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import smart_str, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
-from serializers import ( LoginSerializer, UserSerializer, 
+from authentication.serializers import ( LoginSerializer, UserSerializer, 
                                    RegisterSerializer, 
                                    EmailVerificationSerializer, 
                                    RequestPasswordResetSerializer, 
                                    SetNewPasswordSerializer
                                  )
-from models import User
-from utils import Utils
-from renderers import UserRenderer
+from authentication.models import User
+from authentication.utils import Utils
+from authentication.renderers import UserRenderer
 
 
 class UserViewSet(viewsets.ModelViewSet):

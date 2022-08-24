@@ -1,5 +1,5 @@
 from django.urls import path
-from inventory.views import ( RegisterView, VerifyEmailView, LoginAPIView, 
+from authentication.views import ( RegisterView, VerifyEmailView, LoginAPIView, 
                               RequestPasswordResetEmail, PasswordTokenCheckAPI,
                               SetNewPasswordAPIView
                             )
