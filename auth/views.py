@@ -12,15 +12,15 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import smart_str, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
-from inventory.serializer import ( LoginSerializer, UserSerializer, 
+from serializers import ( LoginSerializer, UserSerializer, 
                                    RegisterSerializer, 
                                    EmailVerificationSerializer, 
                                    RequestPasswordResetSerializer, 
                                    SetNewPasswordSerializer
                                  )
 from models import User
-from auth.utils import Utils
-from inventory.renderers import UserRenderer
+from utils import Utils
+from renderers import UserRenderer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -113,7 +113,7 @@ class LoginAPIView(GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             user = User.objects.get(email=serializer.data['email'])
-            if user.is_vealid:
+            if user.is_valid:
                 refresh = RefreshToken.for_user(user)
                 return Response({'refresh': str(refresh.access_token),
                                  'access': str(refresh.access_token)},

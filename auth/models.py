@@ -1,6 +1,7 @@
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from django.contrib.auth.models import AbstractUser, BaseUserManager, PermissionsMixin
+from django.db import models
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None, **extra_fields):
