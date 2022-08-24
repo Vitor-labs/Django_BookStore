@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'inventory',
     'store',
-    'authenticartion',
+    'authentication',
 ]
 
 CORS_ORIGIN_WHITELIST = [
