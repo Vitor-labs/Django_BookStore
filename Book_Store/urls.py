@@ -24,18 +24,17 @@ from store import views as store_views
 router = routers.DefaultRouter()
 
 # Books, Users [inventory app] routes - Tested OK
-router.register(r'books', inventory_views.BookViewSet)
-router.register(r'users', inventory_views.UserViewSet)
+router.register(r'books', inventory_views.BookViewSet, basename='books')
 
 # Client, Cart, Payment [store app] routes - Tested OK
-router.register(r'clients', store_views.ClientViewSet)
-router.register(r'carts', store_views.CartViewSet)
-router.register(r'items', store_views.CartItemViewSet)
-router.register(r'payments', store_views.PaymentViewSet)
+router.register(r'clients', store_views.ClientViewSet, basename='clients')
+router.register(r'carts', store_views.CartViewSet, basename='carts')
+router.register(r'items', store_views.CartItemViewSet, basename='items')
+router.register(r'payments', store_views.PaymentViewSet, basename='payments')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('', include(router.urls), name='shopping'),
     path('auth/', include('auth.urls'), name='authentication'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('token/', TokenObtainPairView.as_view()),
